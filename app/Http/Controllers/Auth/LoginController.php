@@ -44,7 +44,7 @@ class LoginController extends Controller
         $field=filter_var($request->input('username'),FILTER_VALIDATE_EMAIL)?'email':'username';       
 
         $checklogin=[
-                $field => $request->username
+                $field => $request->username, 'password' =>$request->password
         ];
         if (Auth::attempt($checklogin)) {
             // Authentication passed...
